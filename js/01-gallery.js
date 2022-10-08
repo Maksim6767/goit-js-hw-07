@@ -69,9 +69,18 @@ function onGalleryItemClick(event) {
 //  Закрытие модального окна по нажатию клавиши Escape
 //  Сделай так, чтобы прослушивание клавиатуры было только пока открыто модальное окно
 //  У библиотеки basicLightbox есть метод для программного закрытия модального окна
-window.addEventListener('keydown', event => {
-   if (event.keyCode === 'Escape')
-      onModalClosed()
-}); 
-  
+
+function handleCloseModal() {
+  window.removeEventListener('keydown', handleModalEscPress);
+  galleryContainer.classList.remove('gallery');
+};
+ 
+  function handleModalEscPress() {
+    if (key.code === 'Escape') {
+      return;
+    };
+};
+
 console.log(galleryItems);
+
+
